@@ -19,6 +19,7 @@
 #    "playwright",
 #    "playwright-stealth",
 #    "tabula-py",
+#    "html5lib",
 # ]
 # ///
 
@@ -2074,6 +2075,11 @@ async def aianalyst(request: Request):
     )
 
 
+
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+      
+     "web: uvicorn app:app --host=0.0.0.0 --port=${PORT:-8000}"
+     import uvicorn
+     uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
+     
